@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {select, Store} from "@ngrx/store";
+import {State} from "./reducers";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-refresher';
+
+  pokemonList$ = this.store.pipe(select('pokemonList'));
+
+  constructor(private store: Store<State>) {}
 }

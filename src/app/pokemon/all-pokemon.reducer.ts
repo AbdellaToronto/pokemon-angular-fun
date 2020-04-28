@@ -1,18 +1,15 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import {setPokemonList} from "./pokemon.actions";
 
 
 export const allPokemonFeatureKey = 'allPokemon';
 
-export interface State {
+export type AllPokemonState =  {name: string; url: string;}[];
 
-}
+export const initialState: AllPokemonState = [];
 
-export const initialState: State = {
-
-};
-
-
-export const reducer = createReducer(
+export const allPokemonReducer = createReducer(
   initialState,
+  on(setPokemonList, (state, action) => action.pokemon)
 );
 
