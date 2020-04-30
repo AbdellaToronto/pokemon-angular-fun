@@ -9,6 +9,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {EffectsModule} from "@ngrx/effects";
 import {GetPokemonEffects} from "./pokemon/get-pokemon.effects";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import {GetPokemonEffects} from "./pokemon/get-pokemon.effects";
       }
     }),
     EffectsModule.forRoot([GetPokemonEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
